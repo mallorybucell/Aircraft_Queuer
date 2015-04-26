@@ -1,13 +1,11 @@
 class Aircraft < ActiveRecord::Base
+     class UnavailableError < StandardError; end
 
   def self.grab_removable_aircraft
-    #FIXME error if no planes available
-    removable = Aircraft.where(kind: "passenger")
-    if removable == []
-      Aircraft.where(kind: "cargo")
-    else 
-      removable
+    unless aircraft = Aircraft.passenger_ac_available_to_remove? || aircraft = Aircraft.cargo_ac_available_to_remove?
+      raise Aircraft::UnavailbleError
     end
+    aircraft
   end
 
   def self.grab_removable_aircraft_by_size
@@ -24,6 +22,17 @@ class Aircraft < ActiveRecord::Base
   end
 
 private
+
+  def self.passenger_ac_available_to_remove?
+    available = Aircraft.where(kind: "passenger")
+    available if available != []
+  end
+
+  def self.cargo_ac_available_to_remove?
+    available = Aircraft.where(kind: "cargo")
+    available if available != []
+  end
+
   def self.large_available_to_remove?
     dequeable = Aircraft.grab_removable_aircraft
     available = dequeable.where(size: "large") if dequeable.where(size: "large") != []
