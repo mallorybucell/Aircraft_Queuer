@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :aircraft do
-    size "MyString"
-kind "MyString"
+    size { ["small", "large"].sample }
+    kind { ["passenger", "cargo"].sample }
   end
 
 end

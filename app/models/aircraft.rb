@@ -1,11 +1,11 @@
 class Aircraft < ActiveRecord::Base
 
-  def self.removable_aircraft
+  def self.grab_removable_aircraft
     Aircraft.where(kind: "passenger") || Aircraft.where(kind: "cargo")
   end
 
   def self.sort_removable_aircraft_by_size
-    dequeable = Aircraft.removable_aircraft
+    dequeable = Aircraft.grab_removable_aircraft
     dequeable.where(size: "large") || dequeable.where(size: "small")
   end
 

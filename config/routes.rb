@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root 'queue#home'
+  root to: 'application#home'
 
 
 
