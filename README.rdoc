@@ -1,0 +1,20 @@
+== Aircraft Queue Controller
+
+Basic aircraft queue controller, which can enqueue and dequeue aircraft based on the following specifications:
+
+* queuing system can be accessed/de
+
+* enqueued aircraft must specify size and type
+Passenger AC’s have removal precedence over Cargo AC’s
+
+* Large AC’s of a given type have removal precedence over Small AC’s of the same type.
+
+* Earlier enqueued AC’s of a given type and size have precedence over later enqueued AC’s of the same type and size.
+
+# Assumptions:
+
+* App can be spun up as part of larger app, but I found that difficult to simulate, so for now it spins up upon running server.
+
+* App should be persistent b/c:
+  - multiple traffic controllers may be spinning it up simultaneously and need access to current information
+  - status of system should not be lost in case of power loss, etc.
