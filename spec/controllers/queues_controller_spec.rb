@@ -25,10 +25,11 @@ RSpec.describe QueuesController, type: :controller do
   #     FactoryGirl.create :aircraft
   #   end
 
-  # it 'handles errors gracefully'
-  #   expect(Aircraft.count).to eq 0
+  fit 'handles errors gracefully' do
+    expect(Aircraft.count).to eq 0
 
-  #   delete :dequeue
+    delete :dequeue
 
-  #   expect(response.message).to_include "no planes"
+    expect(response.code).to eq "302"
+  end
 end

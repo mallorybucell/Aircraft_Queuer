@@ -3,7 +3,7 @@ class Aircraft < ActiveRecord::Base
 
   def self.grab_removable_aircraft
     unless aircraft = Aircraft.passenger_ac_available_to_remove? || aircraft = Aircraft.cargo_ac_available_to_remove?
-      raise Aircraft::UnavailbleError
+      raise Aircraft::UnavailableError, "There are no aircraft currently queued."
     end
     aircraft
   end
