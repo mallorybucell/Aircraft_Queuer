@@ -16,6 +16,8 @@ gem 'figaro'
 gem 'activesupport'
 gem 'slim-rails'
 
+gem 'factory_girl_rails'
+
 group :development, :test do
   gem 'spring'
   gem 'better_errors'
@@ -23,7 +25,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'quiet_assets'
-  gem 'factory_girl_rails'
 end
 
 group :test do
