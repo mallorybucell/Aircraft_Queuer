@@ -2,12 +2,13 @@ require 'rails_helper'
 
 RSpec.describe QueuesController, type: :controller do
 
+  before :each do
+    u1 = FactoryGirl.create :user
+    login u1
+  end
+
 
   it 'can remove aircraft from the system' do
-    #FIXME- add user support in controller
-    # u1 = FactoryGirl.create :user
-    # login u1
-
     100.times do
       FactoryGirl.create :aircraft
     end
@@ -25,7 +26,7 @@ RSpec.describe QueuesController, type: :controller do
   #     FactoryGirl.create :aircraft
   #   end
 
-  fit 'handles errors gracefully' do
+  it 'handles errors gracefully' do
     expect(Aircraft.count).to eq 0
 
     delete :dequeue
