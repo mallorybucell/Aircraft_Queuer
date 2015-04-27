@@ -1,0 +1,16 @@
+<h1>Airqueuer Dashboard<h1>
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td><p class="lead">Aircraft currently queued:</p></td><td><p class="lead"><%= @aircraft_count%></p></td>
+    </tr>
+    <tr>
+      <td><%=link_to "Enqueue an aircraft", new_aircraft_path, class: "btn btn-success" %></td>
+      <td><%=form_tag dequeue_path, method: :delete do %>
+        <button class="btn btn-danger">Dequeue an aircraft</button>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -2,6 +2,10 @@ class Aircraft < ActiveRecord::Base
   class UnavailableError < StandardError; end
 
   validates_presence_of :size, :kind
+  validates :size, inclusion: { in: %w(small large),
+    message: "%{value} is not a valid size" }
+  validates :kind, inclusion: { in: %w(passenger cargo),
+    message: "%{value} is not a valid size" }
 
 
   def self.enqueue!(options)
@@ -29,6 +33,14 @@ class Aircraft < ActiveRecord::Base
   end
 
 private
+
+  def self.size_options
+    ["small", "large"]
+  end
+
+  def self.type_options
+    ["passenger", "cargo"]
+  end
 
   def self.passenger_ac_available_to_remove?
     available = Aircraft.where(kind: "passenger")

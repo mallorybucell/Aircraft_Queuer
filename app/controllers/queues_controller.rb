@@ -1,5 +1,16 @@
 class QueuesController < ApplicationController
 
+  def dashboard
+    @aircraft_count = Aircraft.count
+  end
+
+  def new
+    @aircraft = Aircraft.new
+    @size_options = Aircraft.size_options
+    @type_options = Aircraft.type_options
+
+  end
+
   def enqueue
     if Aircraft.enqueue!(enqueue_params)
       flash[:notice] = "Aircraft enqueued successfully."
@@ -15,7 +26,7 @@ class QueuesController < ApplicationController
        flash[:notice] = "Aircraft dequeued successfully!"
       end
     rescue Aircraft::UnavailableError => e
-      flash[:alert] = "#{e} Unable to dequeue aircraft. Please try again."
+      flash[:alert] = "#{e} Unable to dequeue aircraft."
     end
     redirect_to :back
   end

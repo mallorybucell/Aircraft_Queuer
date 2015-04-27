@@ -1,0 +1,12 @@
+<h1>Add an aircraft to the queue</h1>
+
+<%= form_tag enqueue_path, method: :post do %>
+<%= label_tag "Aircraft Type: " %>
+<%=select_tag :kind, options_for_select(@type_options)  %>
+
+<br>
+<%= label_tag "Aircraft Size " %>
+<%=select_tag :size, options_for_select(@size_options)  %>
+<br>
+<button class="btn btn-success">Enqueue Aircraft!</button>
+<% end %>
