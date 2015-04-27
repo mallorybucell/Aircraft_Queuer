@@ -3,9 +3,9 @@ class Aircraft < ActiveRecord::Base
 
   validates_presence_of :size, :kind
   validates :size, inclusion: { in: %w(small large),
-    message: "%{value} is not a valid size" }
+    message: "%{value} is not a valid size." }
   validates :kind, inclusion: { in: %w(passenger cargo),
-    message: "%{value} is not a valid size" }
+    message: "%{value} is not a valid aircraft type." }
 
 
   def self.enqueue!(options)
