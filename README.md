@@ -12,7 +12,7 @@ This app is bare-bones, basic aircraft queue controller, which can enqueue and d
 
 * Earlier enqueued AC’s of a given type and size have precedence over later enqueued AC’s of the same type and size.
 
-# How to User
+# How to Use
   Either clone the repo and spin up a local rails server OR
 
   Navigate to 
