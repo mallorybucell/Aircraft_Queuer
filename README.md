@@ -1,6 +1,8 @@
 # Aircraft Queue Controller
 
-This app is bare-bones, basic aircraft queue controller, which can enqueue and dequeue aircraft based on the following specifications:
+This app is bare-bones, basic aircraft queue controller built in Ruby 2.2.0 and Rails 4.2.0
+
+It can enqueue and dequeue aircraft based on the following specifications:
 
 * Queuing system can be accessed via user login
 
@@ -13,16 +15,31 @@ This app is bare-bones, basic aircraft queue controller, which can enqueue and d
 * Earlier enqueued AC’s of a given type and size have precedence over later enqueued AC’s of the same type and size.
 
 # How to Use
-  Either clone the repo and spin up a local rails server OR
+  ### Option 1: Clone the repo and spin up a local rails server
+  * This version runs on sqlite3 db
+  * clone the repo locally
+  * run 
+        rake db:setup
+      to setup and seed db
+  * run
+        rails server
+    and navigate to your specific port 
 
-  Navigate to [[heroku deployment in progress]]
+  * register your own user or
+  login with the following credentials (or create your own):
+    * email: user1@example.com
+    * password: "password"
+
+  ### Option 2:
+
+  Navigate to http://aircraftqueuer.herokuapp.com/
   and login with the following credentials (or create your own):
-    * email: User1@example.com
+    * email: user1@example.com
     * password: "password"
 
 # Assumptions/Decisions:
 
-* User login can be used in place of actually spinning-up rails app via command, since this is an isolated instance of a stand-alone subsystem.
+* User login can be used in place of actually spinning-up rails app via command, since this is an isolated instance of a stand-alone subsystem. User authsystem generated using Devise gem.
 
 * Aircraft should be persistent because:
   - multiple traffic controllers may be spinning it up simultaneously and need access to current information
