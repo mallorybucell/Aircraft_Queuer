@@ -15,27 +15,26 @@ It can enqueue and dequeue aircraft based on the following specifications:
 * Earlier enqueued AC’s of a given type and size have precedence over later enqueued AC’s of the same type and size.
 
 # How to Use
-  ### Option 1: Clone the repo and spin up a local rails server
-  * This version runs on sqlite3 db
-  * clone the repo locally
-  * run 
-        rake db:setup
-      to setup and seed db
-  * run
+### Option 1: Clone the repo and spin up a local rails server
+* This version runs on sqlite3 db
+* clone the repo locally
+* run 
+      rake db:setup
+to setup and seed db
+* run
         rails server
-    and navigate to your specific port 
+and navigate to your specific port 
 
-  * register your own user or
-  login with the following credentials (or create your own):
-    * email: user1@example.com
-    * password: "password"
+* register your own user or login with the following credentials (or create your own):
+    email: user1@example.com
+    password: "password"
 
-  ### Option 2:
+### Option 2:
 
   Navigate to http://aircraftqueuer.herokuapp.com/
   and login with the following credentials (or create your own):
-    * email: user1@example.com
-    * password: "password"
+    email: user1@example.com
+    password: "password"
 
 # Assumptions/Decisions:
 
