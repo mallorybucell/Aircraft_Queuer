@@ -1,5 +1,12 @@
 class Aircraft < ActiveRecord::Base
-     class UnavailableError < StandardError; end
+  class UnavailableError < StandardError; end
+
+  validates_presence_of :size, :kind
+
+
+  def self.enqueue!(options)
+    Aircraft.create!(size: options["size"], kind: options["kind"])
+  end
 
   def self.grab_removable_aircraft
     unless aircraft = Aircraft.passenger_ac_available_to_remove? || aircraft = Aircraft.cargo_ac_available_to_remove?

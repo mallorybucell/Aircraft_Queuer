@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   root to: 'application#home'
 
+  post 'aircraft/enqueue' => 'queues#enqueue', as: 'enqueue'
 
-
-  delete '/dequeue' => 'queues#dequeue', as: 'dequeue'
+  delete 'aircraft/dequeue' => 'queues#dequeue', as: 'dequeue'
 
 end

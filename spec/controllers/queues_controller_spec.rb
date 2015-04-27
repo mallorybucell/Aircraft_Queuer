@@ -21,10 +21,17 @@ RSpec.describe QueuesController, type: :controller do
     expect(response.code).to eq 302.to_s
   end
 
-  # it 'can add aircraft to the system'
-  #   100.times do
-  #     FactoryGirl.create :aircraft
-  #   end
+  it 'can add aircraft to the system' do
+    100.times do
+      FactoryGirl.create :aircraft
+    end
+
+    expect(Aircraft.count).to eq 100
+
+    post :enqueue, size: "large", kind: "passenger"
+
+    expect(Aircraft.count).to eq 101
+  end
 
   it 'handles errors gracefully' do
     expect(Aircraft.count).to eq 0

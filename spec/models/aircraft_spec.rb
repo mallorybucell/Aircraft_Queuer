@@ -126,6 +126,25 @@ RSpec.describe Aircraft, type: :model do
 
 #Enqueing specs
 
-  it 'requires kind and size when adding a new plane to the system'
+  it 'requires kind and size when adding a new plane to the system' do
+    5.times do
+      FactoryGirl.create :aircraft
+    end
+
+    expect(Aircraft.count).to eq 5
+
+    expect do
+      Aircraft.create!(size: "large")
+    end.to raise_error ActiveRecord::RecordInvalid
+    expect(Aircraft.count).to eq 5
+
+    expect do
+      Aircraft.create!(kind: "passenger")
+    end.to raise_error ActiveRecord::RecordInvalid
+    expect(Aircraft.count).to eq 5
+
+    Aircraft.create!(size: "large", kind: "passenger")
+    expect(Aircraft.count).to eq 6
+  end
 
 end
