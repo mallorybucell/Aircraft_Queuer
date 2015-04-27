@@ -1,7 +1,13 @@
 class QueuesController < ApplicationController
 
   def dashboard
-    @aircraft_count = Aircraft.count
+    enqueued = Aircraft.all
+    @num_current_cargo = enqueued.where(kind: "cargo").count
+    @num_current_passenger = enqueued.where(kind: "passenger").count 
+    @num_current_small = enqueued.where(size: "small").count 
+    @num_current_large = enqueued.where(size: "large").count
+    @aircraft_count = enqueued.count
+    
   end
 
   def new

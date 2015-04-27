@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
 
 private
 
-  # rescue_from StandardError do |e|
-  #   flash[:alert] = "Oops! Something went wrong. Please try again."
-  #   redirect_to :root
-  # end
+  rescue_from StandardError do |e|
+    flash[:alert] = "Oops! Something went wrong. Please try again."
+    redirect_to :root
+  end
   
 end

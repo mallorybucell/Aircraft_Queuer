@@ -1,16 +1,46 @@
 <h1>Airqueuer Dashboard<h1>
 
-<table class="table table-striped">
+<h3>Currently Enqueued Aircraft Summary</h3>
+
+<p class="lead">Aircraft currently queued: <%= @aircraft_count %></p>
+
+
+<h4>Aircraft by Type</h4>
+<table class="table table-striped table-bordered">
+  <thead>
+    <th>Cargo</th>
+    <th>Passenger</th>
+  </thead>
   <tbody>
     <tr>
-      <td><p class="lead">Aircraft currently queued:</p></td><td><p class="lead"><%= @aircraft_count%></p></td>
-    </tr>
-    <tr>
-      <td><%=link_to "Enqueue an aircraft", new_aircraft_path, class: "btn btn-success" %></td>
-      <td><%=form_tag dequeue_path, method: :delete do %>
-        <button class="btn btn-danger">Dequeue an aircraft</button>
-        <% end %>
-      </td>
+      <td><%= @num_current_cargo %></td>
+      <td><%= @num_current_passenger %></td>
     </tr>
   </tbody>
 </table>
+
+<h4>Aircraft by Size</h4>
+<table class="table table-striped table-bordered">
+  <thead>
+    <th>Small</th>
+    <th>Large</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @num_current_small %></td>
+      <td><%= @num_current_large %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Manage Planes">
+  <div class="btn-group" role="group" aria-label="Enqueue">
+    <%=link_to "Enqueue an aircraft", new_aircraft_path, class: "btn btn-success" %>
+  </div>
+  <div class="btn-group" role="group" aria-label="Dequeue">
+    <%= form_tag dequeue_path, method: :delete do %>
+    <button class="btn btn-danger">Dequeue an aircraft</button>
+    <% end %>
+  </div>
+</div>
+
