@@ -16,25 +16,25 @@ It can enqueue and dequeue aircraft based on the following specifications:
 
 # How to Use
 ### Option 1: Clone the repo and spin up a local rails server
-* This version runs on sqlite3 db
+* This version users a `sqlite3` database
 * clone the repo locally
 * run 
-      rake db:setup
+      `rake db:setup`
 to setup and seed db
 * run
-        rails server
+        `rails server`
 and navigate to your specific port 
 
 * register your own user or login with the following credentials (or create your own):
-    email: user1@example.com
-    password: "password"
+    `email: user1@example.com`
+    `password: password`
 
 ### Option 2:
 
   Navigate to http://aircraftqueuer.herokuapp.com/
   and login with the following credentials (or create your own):
-    email: user1@example.com
-    password: "password"
+    `email: user1@example.com`
+    `password: password`
 
 # Assumptions/Decisions:
 
