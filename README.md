@@ -15,7 +15,7 @@ This app is bare-bones, basic aircraft queue controller, which can enqueue and d
 # How to Use
   Either clone the repo and spin up a local rails server OR
 
-  Navigate to 
+  Navigate to [[heroku deployment in progress]]
   and login with the following credentials (or create your own):
     * email: User1@example.com
     * password: "password"
