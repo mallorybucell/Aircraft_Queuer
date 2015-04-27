@@ -1,4 +1,4 @@
-== Aircraft Queue Controller
+# Aircraft Queue Controller
 
 This app is bare-bones, basic aircraft queue controller, which can enqueue and dequeue aircraft based on the following specifications:
 
